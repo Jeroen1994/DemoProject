@@ -5,6 +5,6 @@ package be.pxl.ja.common;
  */
 public interface DistanceFunction {
 
-    public abstract Double distance(T afstand);
+    public abstract Double distance(T city);
 
 }
