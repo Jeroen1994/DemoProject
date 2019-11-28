@@ -7,7 +7,8 @@ import java.util.TreeSet;
  */
 public class DistanceUtil {
 
-    public static findClosest(TreeSet<T> elements, T otherElement){
+    public static Double findClosest(TreeSet<T> elements, T otherElement){
+        return null;
         /*De methode findClosest zoekt het object uit de lijst elements waarvoor de distance
         tot otherElement het kleinste is. Het gevonden object is de returnwaarde van de
         functie.

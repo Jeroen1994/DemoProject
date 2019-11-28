@@ -21,10 +21,10 @@ public class City implements DistanceFunction {
 	public String toString() {
 		return name;
 	}
-/*
+
 		//Source: https://www.geodatasource.com/developers/java
 	    //Calculates the distance between 2 points when given latitude and longitude in decimal degrees
-
+/*
 		double radTheta = Math.toRadians(longitude - other.longitude);
 		double radLatitude = Math.toRadians(latitude);
 		double radOtherLatitude = Math.toRadians(other.latitude);
