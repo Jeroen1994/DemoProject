@@ -1,9 +1,7 @@
 package be.pxl.ja.common;
 
-/**
- * Created by Jeronimos on 28/11/2019.
- */
-public interface DistanceFunction {
+@FunctionalInterface
+public interface DistanceFunction<T> {
 
     public abstract Double distance(T city);
 
