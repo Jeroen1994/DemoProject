@@ -11,6 +11,10 @@ public class RGBPixel implements PixelToInt {
         this.blue = blue;
     }
 
+    public void convertToGrayscale() {
+
+    }
+
     @Override
     public int toRGB() {
         int rgb = red;
