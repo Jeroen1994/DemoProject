@@ -20,8 +20,8 @@ public class CityTest {
 
     @Test
     pubic void invalidLatitude(){
-        assertThrows(IllegalArgumentException.class, ()-> DistanceFunction(maaseik,tienenSlecht){
-
+        assertThrows(IllegalArgumentException.class, ()-> {
+            maaseik.DistanceFunction(tienenSlecht);
         })
 
     }
