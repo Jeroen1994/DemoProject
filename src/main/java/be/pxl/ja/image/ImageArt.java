@@ -24,6 +24,8 @@ public class ImageArt {
         Path resourceDirectory = Paths.get("src", "test", "resources", "tokio.jpg");
         ImageReader.readImage(resourceDirectory);
 
+
+
     }
 
     private static Map<GrayscalePixel, RGBPixel> createTranslationMap(List<RGBPixel> faireyColors, TreeSet<GrayscalePixel> allGreyscalePixels) {
