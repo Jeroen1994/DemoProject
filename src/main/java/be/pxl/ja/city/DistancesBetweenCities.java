@@ -15,7 +15,7 @@ public class DistancesBetweenCities {
 		City tienen = new City("Tienen", 50.81057, 4.93622);
 		City maaseik = new City("Maaseik", 51.0983909, 5.7837625);
 
-		TreeSet<String> steden = new TreeSet<>();
+		TreeSet<String> steden = new TreeSet<String>();
 		steden.add(leuven.toString());
 		steden.add(roermond.toString());
 		steden.add(maastricht.toString());
