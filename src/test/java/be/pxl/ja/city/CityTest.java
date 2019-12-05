@@ -1,6 +1,8 @@
 package be.pxl.ja.city;
 
 import static org.junit.Assert.*;
+
+import be.pxl.ja.common.DistanceFunction;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,13 +14,13 @@ public class CityTest {
 
     @Before
     public void init(){
-        tienen = new City("Tienen", 50.81057, 4.93622);
+        tienenSlecht = new City("Tienen", 50.81057, 4.93622);
         maaseik= new City("Maaseik", 51.0983909, 5.7837625);
     }
 
     @Test
     pubic void invalidLatitude(){
-        assertThrows(IllegalArgumentException.class, ()-> tienenSlecht.DistanceFunction(tienenSlecht){
+        assertThrows(IllegalArgumentException.class, ()-> DistanceFunction(){
 
         })
 

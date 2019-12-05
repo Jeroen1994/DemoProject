@@ -16,13 +16,11 @@ public class City {
 		return name;
 	}
 
-	public double DistanceFunction(double lat1, double long1, double lat2, double long2){
-		//Source: https://www.geodatasource.com/developers/java
-	    //Calculates the distance between 2 points when given latitude and longitude in decimal degrees
+	public double DistanceFunction(City other){
 
-		double radTheta = Math.toRadians(long1 - long2);
-		double radLatitude = Math.toRadians(lat1);
-		double radOtherLatitude = Math.toRadians(lat2);
+		double radTheta = Math.toRadians(this.longitude - other.longitude);
+		double radLatitude = Math.toRadians(this.latitude);
+		double radOtherLatitude = Math.toRadians(other.longitude);
 		double dist = Math.sin(radLatitude) * Math.sin(radOtherLatitude) + Math.cos(radLatitude) * Math.cos(radOtherLatitude) * Math.cos(radTheta);
 		dist = Math.acos(dist);
 		dist = Math.toDegrees(dist);

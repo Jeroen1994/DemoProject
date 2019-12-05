@@ -1,9 +1,9 @@
 package be.pxl.ja.city;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.TreeSet;
+import be.pxl.ja.common.DistanceFunction;
+import be.pxl.ja.common.DistanceUtil;
+
+import java.util.*;
 
 public class DistancesBetweenCities {
 
@@ -15,13 +15,20 @@ public class DistancesBetweenCities {
 		City tienen = new City("Tienen", 50.81057, 4.93622);
 		City maaseik = new City("Maaseik", 51.0983909, 5.7837625);
 
-		TreeSet<String> steden = new TreeSet<String>();
+		TreeSet<String> steden = new TreeSet<String>(new Comparator<String>() {
+			public int compare(String o1, String o2) {
+				return o1.toString().compareTo(o2);
+			}
+		});
 		steden.add(leuven.toString());
 		steden.add(roermond.toString());
 		steden.add(maastricht.toString());
 		steden.add(aken.toString());
 		steden.add(tienen.toString());
 		steden.add(maaseik.toString());
+
+		double distance = DistanceUtil.findClosest(steden,maaseik);
+
 
 		for (String stad : steden) {
 			System.out.println(stad);
