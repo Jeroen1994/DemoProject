@@ -1,6 +1,8 @@
 package be.pxl.ja.city;
 
-public class City {
+import be.pxl.ja.common.DistanceFunction;
+
+public class City implements DistanceFunction {
 	private String name;
 	private double latitude;
 	private double longitude;
@@ -42,5 +44,10 @@ public class City {
 
 	public void setLongitude(double longitude) {
 		this.longitude = longitude;
+	}
+
+	@Override
+	public double distance(Object city) {
+		return 0;
 	}
 }
