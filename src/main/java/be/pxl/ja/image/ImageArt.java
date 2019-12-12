@@ -22,7 +22,7 @@ public class ImageArt {
         RGBPixel lava = new RGBPixel(218, 20, 21);
         List<RGBPixel> faireyColors = Arrays.asList(prussianBlue, lava, desaturatedCyan, peachYellow);
 
-        Path resourceDirectory = Paths.get("src", "test", "resources", "tokio.jpg");
+        Path resourceDirectory = Paths.get("src","main", "resources", "tokio.jpg");
 
         ImageReader.readImage(resourceDirectory);
 
@@ -35,7 +35,11 @@ public class ImageArt {
 
 
 
+        ImageWriter.writeImage(resourceDirectory,grayPhoto);
+
     }
+
+
 
     private static Map<GrayscalePixel, RGBPixel> createTranslationMap(List<RGBPixel> faireyColors, TreeSet<GrayscalePixel> allGreyscalePixels) {
         int size = allGreyscalePixels.size() / faireyColors.size();
