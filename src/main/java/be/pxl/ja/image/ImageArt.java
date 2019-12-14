@@ -3,13 +3,7 @@ package be.pxl.ja.image;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class ImageArt {
@@ -22,16 +16,33 @@ public class ImageArt {
         RGBPixel lava = new RGBPixel(218, 20, 21);
         List<RGBPixel> faireyColors = Arrays.asList(prussianBlue, lava, desaturatedCyan, peachYellow);
 
+        //path naar resources voor foto
+
         Path resourceDirectory = Paths.get("src", "test", "resources", "tokio.jpg");
 
         ImageReader.readImage(resourceDirectory);
 
         List<List<RGBPixel>> photo = ImageReader.readImage(resourceDirectory);
 
+        //foto omzetten naar zwart en wit
+
         List<List<GrayscalePixel>> grayPhoto =
                 photo.stream().map(s ->
                         s.stream().map(RGBPixel::convertToGrayscale).collect(Collectors.toList())
                 ).collect(Collectors.toList());
+
+        ImageWriter.writeImage(resourceDirectory, grayPhoto);
+
+        //foto omzetten naar fairey-cize
+
+        /*List<List<GrayscalePixel>> faireyPhoto =
+                grayPhoto.stream().map(s ->
+                        s.stream().map(RGBPixel::convertToGrayscale).collect(Collectors.toList())
+                ).collect(Collectors.toList());*/
+
+
+        /*List<List<GrayscalePixel>> grayScaleValue =
+                grayPhoto.stream().sorted(Comparator.comparing(GrayscalePixel::getGreyscale)).collect(Collectors.toList());*/
 
 
 

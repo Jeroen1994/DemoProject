@@ -3,6 +3,7 @@ package be.pxl.ja.image;
 import java.awt.*;
 
 public class GrayscalePixel implements PixelToInt {
+
     private int greyscale;
 
     public GrayscalePixel(int greyscale) {
@@ -10,7 +11,7 @@ public class GrayscalePixel implements PixelToInt {
     }
 
     public int getGreyscale() {
-        return greyscale;
+        return this.greyscale;
     }
 
     @Override
