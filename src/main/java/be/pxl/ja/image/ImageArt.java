@@ -20,20 +20,25 @@ public class ImageArt {
 
         Path resourceDirectory = Paths.get("src", "test", "resources", "tokio.jpg");
 
-        ImageReader.readImage(resourceDirectory);
+        //ImageReader.readImage(resourceDirectory);
 
         List<List<RGBPixel>> photo = ImageReader.readImage(resourceDirectory);
 
         //foto omzetten naar zwart en wit
 
         List<List<GrayscalePixel>> grayPhoto =
-                photo.stream().map(s ->
+               photo.stream().map(s ->
                         s.stream().map(RGBPixel::convertToGrayscale).collect(Collectors.toList())
                 ).collect(Collectors.toList());
 
         ImageWriter.writeImage(resourceDirectory, grayPhoto);
 
         //foto omzetten naar fairey-cize
+
+        /*Set<GrayscalePixel> numbersSet = grayPhoto.stream()
+                .flatMap(List::stream)
+                .collect(Collectors.toSet());*/
+
 
         /*List<List<GrayscalePixel>> faireyPhoto =
                 grayPhoto.stream().map(s ->
