@@ -7,8 +7,10 @@ import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
 import be.pxl.ja.common.DistanceFunction;
+import be.pxl.ja.common.DistanceUtil;
+import sun.reflect.generics.tree.Tree;
 
-public class ImageArt {
+public class ImageArt  {
 
     public static void main(String[] args) throws IOException {
 
@@ -20,7 +22,7 @@ public class ImageArt {
 
         //path naar resources voor foto
 
-        Path resourceDirectory = Paths.get("src", "test", "resources", "tokio.jpg");
+        Path resourceDirectory = Paths.get("src", "main", "resources", "tokio.jpg");
 
         //ImageReader.readImage(resourceDirectory);
 
@@ -33,25 +35,45 @@ public class ImageArt {
                         s.stream().map(RGBPixel::convertToGrayscale).collect(Collectors.toList())
                 ).collect(Collectors.toList());
 
+
+        List<GrayscalePixel> grayPhotoList = grayPhoto.stream()
+                .flatMap(Collection::stream)
+                .collect(Collectors.toList());
+
         ImageWriter.writeImage(resourceDirectory, grayPhoto);
 
         //foto omzetten naar fairey-cize
         //grayscaleobjecten sorteren
-        TreeSet<GrayscalePixel> grayscalePixels = new TreeSet<>();
-        Set<Integer> sorted = new TreeSet<Integer>((Comparator<? super Integer>) grayscalePixels);
+        Path grayDirectory = Paths.get("src", "main", "resources", "grayscale.jpg");
+
+        TreeSet<GrayscalePixel> grayscalePixels = new TreeSet<>(grayPhotoList);
 
         Map<GrayscalePixel, RGBPixel> translationMap = createTranslationMap(faireyColors, grayscalePixels);
 
-        Set<GrayscalePixel> keyset = translationMap.keySet();
+        TreeSet<GrayscalePixel> listValues = new TreeSet<>(translationMap.keySet());
 
-        /*List<List<GrayscalePixel>> faireyPhoto =
+        List<List<RGBPixel>> newPhoto = grayPhoto.stream()
+                .map(x -> x.stream()
+                .map(r -> translationMap.get(DistanceUtil.findClosest(listValues, r))).collect(Collectors.toList())
+                        ).collect(Collectors.toList());
+
+        ImageWriter.writeImage(resourceDirectory, newPhoto);
+
+
+
+
+
+
+        /*Set<GrayscalePixel> keyset = translationMap.keySet();
+
+        *//*List<List<GrayscalePixel>> faireyPhoto =
                 grayPhoto.stream().map(s ->
-                        s.stream().map(Map.Entry::getKey).collect(Collectors.toList()));*/
+                        s.stream().map(Map.Entry::getKey).collect(Collectors.toList()));*//*
 
         //ImageWriter.writeImage(resourceDirectory, faireyPhoto);
 
 
-        List<List<RGBPixel>> grayphoto = ImageReader.readImage(resourceDirectory);
+        List<List<RGBPixel>> grayphoto = ImageReader.readImage(resourceDirectory);*/
 
 
         /*List<List<GrayscalePixel>> faireyPhoto =

@@ -1,6 +1,7 @@
 package be.pxl.ja.common;
 
 import be.pxl.ja.city.City;
+import be.pxl.ja.image.GrayscalePixel;
 
 import java.util.Iterator;
 import java.util.Set;
