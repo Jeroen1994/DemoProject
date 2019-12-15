@@ -20,7 +20,8 @@ public class ImageArt {
 
         //path naar resources voor foto
 
-        Path resourceDirectory = Paths.get("src", "test", "resources", "tokio.jpg");
+        Path resourceDirectory = Paths.get("src", "main", "resources", "tokio.jpg");
+        Path writeDirectory = Paths.get("src", "main", "resources", "grayscale.jpg");
 
         //ImageReader.readImage(resourceDirectory);
 
@@ -33,7 +34,7 @@ public class ImageArt {
                         s.stream().map(RGBPixel::convertToGrayscale).collect(Collectors.toList())
                 ).collect(Collectors.toList());
 
-        ImageWriter.writeImage(resourceDirectory, grayPhoto);
+        ImageWriter.writeImage(writeDirectory, grayPhoto);
 
         //foto omzetten naar fairey-cize
         //grayscaleobjecten sorteren
@@ -51,7 +52,7 @@ public class ImageArt {
         //ImageWriter.writeImage(resourceDirectory, faireyPhoto);
 
 
-        List<List<RGBPixel>> grayphoto = ImageReader.readImage(resourceDirectory);
+        List<List<RGBPixel>> grayphoto = ImageReader.readImage(writeDirectory);
 
 
         /*List<List<GrayscalePixel>> faireyPhoto =
