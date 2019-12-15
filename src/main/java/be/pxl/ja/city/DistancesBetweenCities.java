@@ -16,24 +16,29 @@ public class DistancesBetweenCities {
 		City tienen = new City("Tienen", 50.81057, 4.93622);
 		City maaseik = new City("Maaseik", 51.0983909, 5.7837625);
 
-		Set<String> steden = new TreeSet<String>(new Comparator<String>() {
-			public int compare(String o1, String o2) {
-				return o1.toString().compareTo(o2);
+		TreeSet<City> steden = new TreeSet<>(new Comparator<City>() {
+			public int compare(City o1, City o2) {
+				return o1.toString().compareTo(o2.toString());
 			}
 		});
 
-		steden.add(leuven.toString());
-		steden.add(roermond.toString());
-		steden.add(maastricht.toString());
-		steden.add(aken.toString());
-		steden.add(tienen.toString());
-		steden.add(maaseik.toString());
+		steden.add(leuven);
+		steden.add(roermond);
+		steden.add(maastricht);
+		steden.add(aken);
+		steden.add(tienen);
+		steden.add(maaseik);
 
-		for (String stad : steden) {
+		for (City stad : steden) {
 			System.out.println(stad);
 		}
 
-		//double distance = DistanceUtil.findClosest(steden,maaseik);
+
+		City shortestCity = DistanceUtil.findClosest(steden, maaseik);
+		System.out.println();
+		System.out.println(shortestCity);
+
+
 
 
 
