@@ -26,24 +26,7 @@ public class DistanceUtil<T extends DistanceFunction> {
         }
 
         return smallestCity;
-
-
-        /*Iterator<City> iterator= (Iterator<City>) elements.iterator();
-        double dist=0;
-        double lowestDist=0;
-
-        while(iterator.hasNext())
-            dist= elements.DistanceFunction(otherElement);
-        if (dist<lowestDist){
-            lowestDist=dist;
-        }
-
-        return lowestDist;*/
-        //klopt nog ni ze
-        /*De methode findClosest zoekt het object uit de lijst elements waarvoor de distance
-        tot otherElement het kleinste is. Het gevonden object is de returnwaarde van de
-        functie.
-        */
+        
     }
 }
 

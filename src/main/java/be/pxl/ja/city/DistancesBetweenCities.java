@@ -34,7 +34,7 @@ public class DistancesBetweenCities {
 		}
 
 
-		City shortestCity = DistanceUtil.findClosest(steden, maaseik);
+		City shortestCity = DistanceUtil.findClosest(steden, aken);
 		System.out.println();
 		System.out.println(shortestCity);
 
