@@ -1,10 +1,12 @@
 package be.pxl.ja.image;
 
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
+import be.pxl.ja.common.DistanceFunction;
 
 public class ImageArt {
 
@@ -34,6 +36,27 @@ public class ImageArt {
         ImageWriter.writeImage(resourceDirectory, grayPhoto);
 
         //foto omzetten naar fairey-cize
+        //grayscaleobjecten sorteren
+        TreeSet<GrayscalePixel> grayscalePixels = new TreeSet<>();
+        Set<Integer> sorted = new TreeSet<Integer>((Comparator<? super Integer>) grayscalePixels);
+
+        Map<GrayscalePixel, RGBPixel> translationMap = createTranslationMap(faireyColors, grayscalePixels);
+
+        Set<GrayscalePixel> keyset = translationMap.keySet();
+
+        /*List<List<GrayscalePixel>> faireyPhoto =
+                grayPhoto.stream().map(s ->
+                        s.stream().map(Map.Entry::getKey).collect(Collectors.toList()));*/
+
+        //ImageWriter.writeImage(resourceDirectory, faireyPhoto);
+
+
+        List<List<RGBPixel>> grayphoto = ImageReader.readImage(resourceDirectory);
+
+
+        /*List<List<GrayscalePixel>> faireyPhoto =
+                grayphoto.stream().map(s ->
+                        s.stream().map(RGBPixel::createTra).collect(Collectors.toList())).collect(Collectors.toList());*/
 
         /*Set<GrayscalePixel> numbersSet = grayPhoto.stream()
                 .flatMap(List::stream)
@@ -75,4 +98,6 @@ public class ImageArt {
         }
         return translationMap;
     }
+
+
 }

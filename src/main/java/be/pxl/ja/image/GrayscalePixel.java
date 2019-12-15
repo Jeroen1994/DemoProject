@@ -1,5 +1,7 @@
 package be.pxl.ja.image;
 
+import be.pxl.ja.common.DistanceFunction;
+
 import java.awt.*;
 
 public class GrayscalePixel implements PixelToInt {
@@ -23,4 +25,5 @@ public class GrayscalePixel implements PixelToInt {
     public String toString() {
         return Integer.toString(greyscale);
     }
+
 }

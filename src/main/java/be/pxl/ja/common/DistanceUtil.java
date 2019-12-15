@@ -10,15 +10,23 @@ import java.util.TreeSet;
  * Created by Jeronimos on 28/11/2019.
  * https://www.codeproject.com/Questions/368097/Sort-by-distance-in-Java => find closest
  */
-public class DistanceUtil {
+public class DistanceUtil<T extends DistanceFunction> {
 
-    public static <T> Double findClosest(TreeSet<T> elements, T otherElement) {
+    public static <T extends DistanceFunction> T findClosest(TreeSet<T> elements, T otherElement) {
 
-        double distance = 0;
+        double smallest = 200000000;
+        T smallestCity = null;
         for (T element : elements) {
-
+            double distance = otherElement.distance(element);
+            if (smallest > distance && 0 < distance) {
+                smallest = distance;
+                smallestCity = element;
+            }
         }
-        return distance;
+
+        return smallestCity;
+
+
         /*Iterator<City> iterator= (Iterator<City>) elements.iterator();
         double dist=0;
         double lowestDist=0;
