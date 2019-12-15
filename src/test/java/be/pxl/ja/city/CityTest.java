@@ -1,4 +1,6 @@
+/*
 package be.pxl.ja.city;
+
 
 import static org.junit.Assert.*;
 
@@ -22,7 +24,7 @@ public class CityTest {
     pubic void invalidLatitude(){
         assertThrows(IllegalArgumentException.class, ()-> {
             maaseik.DistanceFunction(tienenSlecht);
-        })*/
+        })
 
     }
-
+ */
