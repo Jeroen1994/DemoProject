@@ -23,7 +23,7 @@ public class ImageArt {
         //path naar resources voor foto
 
         Path resourceDirectory = Paths.get("src", "main", "resources", "tokio.jpg");
-        Path testdirectory = Paths.get("C:","Users","11701731","Desktop","test", "tokio.jpg");
+        //Path testdirectory = Paths.get("C:","Users","11701731","Desktop","test", "tokio.jpg");
         Path grayDirectory = Paths.get("src", "main", "resources", "grayphoto.jpg");
 
         //ImageReader.readImage(resourceDirectory);

@@ -26,7 +26,7 @@ public class DistanceUtil<T extends DistanceFunction> {
         }
 
         return smallestCity;
-        
+
     }
 }
 
