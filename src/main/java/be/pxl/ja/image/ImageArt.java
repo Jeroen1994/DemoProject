@@ -10,7 +10,7 @@ import be.pxl.ja.common.DistanceFunction;
 import be.pxl.ja.common.DistanceUtil;
 //import sun.reflect.generics.tree.Tree;
 
-public class ImageArt  {
+public class ImageArt {
 
     public static void main(String[] args) throws IOException {
 
@@ -23,6 +23,8 @@ public class ImageArt  {
         //path naar resources voor foto
 
         Path resourceDirectory = Paths.get("src", "main", "resources", "tokio.jpg");
+        Path testdirectory = Paths.get("C:","Users","11701731","Desktop","test", "tokio.jpg");
+        Path grayDirectory = Paths.get("src", "main", "resources", "grayphoto.jpg");
 
         //ImageReader.readImage(resourceDirectory);
 
@@ -40,11 +42,14 @@ public class ImageArt  {
                 .flatMap(Collection::stream)
                 .collect(Collectors.toList());
 
-        ImageWriter.writeImage(resourceDirectory, grayPhoto);
+        ImageWriter.writeImage(grayDirectory, grayPhoto);
 
         //foto omzetten naar fairey-cize
         //grayscaleobjecten sorteren
-        Path grayDirectory = Paths.get("src", "main", "resources", "grayscale.jpg");
+
+        //Path grayDirectory = Paths.get("C:","Users","11701731","Desktop","test");
+
+        Path finalPhoto = Paths.get("src", "main", "resources", "final.jpg");
 
         TreeSet<GrayscalePixel> grayscalePixels = new TreeSet<>(grayPhotoList);
 
@@ -57,10 +62,7 @@ public class ImageArt  {
                 .map(r -> translationMap.get(DistanceUtil.findClosest(listValues, r))).collect(Collectors.toList())
                         ).collect(Collectors.toList());
 
-        ImageWriter.writeImage(resourceDirectory, newPhoto);
-
-
-
+        ImageWriter.writeImage(finalPhoto, newPhoto);
 
 
 
@@ -120,6 +122,5 @@ public class ImageArt  {
         }
         return translationMap;
     }
-
 
 }
